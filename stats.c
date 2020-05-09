@@ -31,31 +31,37 @@ void main() {
                               200, 122, 150, 90,   92,  87, 177, 244,
                               201,   6,  12,  60,   8,   2,   5,  67,
                                 7,  87, 250, 230,  99,   3, 100,  90};
-  sort_array(test,SIZE);
-  float m = find_median(test,SIZE);
-  printf("Median: %.2f \n",m);
+  
   float mean= find_mean(test,40.0);
-  printf("Mean: %.4f \n",mean);
+
+  float median = find_median(test,SIZE);
+
+  sort_array(test,SIZE);
+
+  print_array(test,SIZE);     
+
   int max = find_maximum(test,SIZE);
   int min = find_minimum(test,SIZE);
-  printf("Max: %d,Min: %d\n",max,min);
-  print_array(test,SIZE);                      
+
+  print_statistics(min,max,mean,median);     
 
 }
 
 void print_statistics(int minimum, int maximum, float mean, int median){
-    printf("%d,\t",minimum);
-    printf("%d,\t",maximum);
-    printf("%f,\t",mean);
-    printf("%d,\t",median);
+    printf("The reults from the program:\n");
+    printf("Mean: %.4f \n",mean);
+    printf("Median: %.2f \n",median);
+    printf("Maximum: %d \n",maximum);
+    printf("Minimum: %d\n",minimum);
 }
 
 void print_array(int * ptr, int n){
-    printf("DataSet:\n");
+    printf("Sorted Data: \t\n");
     for(int i=0; i<n; i++){
         printf("%u,\t",*ptr);
         ++ptr;
     }
+    printf("\n");
 }
 
 float find_median(int arr[], int n){
